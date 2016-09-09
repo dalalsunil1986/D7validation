@@ -1,0 +1,4 @@
+name = Article rule
+description = This Custom module will demonstrate different way to validate form and their element.
+core = 7.x
+package = Drupal Demo

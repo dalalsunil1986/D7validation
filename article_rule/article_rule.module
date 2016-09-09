@@ -1,0 +1,65 @@
+<?php
+
+
+/**
+ * Implements hook_menu().
+ *
+ * Here we set up the URLs (menu entries) for the
+ * form examples. Note that most of the menu items
+ * have page callbacks and page arguments set, with
+ * page arguments set to be functions in external files.
+ */
+function article_rule_menu() {
+    $items = array();
+/*    $items['tutorial'] = array(
+        'title' => 'Form Validation Example',
+        'page callback' => 'form_validation_intro',
+        'access callback' => TRUE,
+        'expanded' => TRUE,
+    );*/
+    $items['tutorial/article_validate_page'] = array(
+        'title' => 'Form Validation Tutorial',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('article_val_tutorial_1'),
+        'access callback' => TRUE,
+        'file' => 'article_rule_tutorial.inc',
+        'type' => MENU_NORMAL_ITEM,
+    );
+    $items['tutorial/article_validate_page/1'] = array(
+        'title' => '#1',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('article_val_tutorial_1'),
+        'access callback' => TRUE,
+        'description' => 'Tutorial 1: Simplest form validation',
+        'type' => MENU_DEFAULT_LOCAL_TASK,
+        'file' => 'article_rule_tutorial.inc',
+    );
+    $items['tutorial/article_validate_page/2'] = array(
+        'title' => '#2',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('article_val_tutorial_2'),
+        'access callback' => TRUE,
+        'description' => 'Tutorial 2: Simplest form validation',
+        'type' => MENU_LOCAL_TASK,
+        'file' => 'article_rule_tutorial.inc',
+    );
+    $items['tutorial/article_validate_page/3'] = array(
+        'title' => '#3',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('article_val_tutorial_3'),
+        'access callback' => TRUE,
+        'description' => 'Tutorial 3: Simplest form validation',
+        'type' => MENU_LOCAL_TASK,
+        'file' => 'article_rule_tutorial.inc',
+    );
+    return $items;
+}
+
+/**
+ * Page callback for our general info page.
+ */
+function form_validation_intro() {
+    $markup = t('form validation sample');
+    return array('#markup' => $markup);
+}
+?>
